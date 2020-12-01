@@ -1,1 +1,1 @@
-"# Telemetry-Discord-Bot" 
+Telemetry-Discord-Bot" 
