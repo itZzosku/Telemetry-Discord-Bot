@@ -33,8 +33,8 @@ class Temperature(commands.Cog):
         humiditylong = Decimal(r_temp['field2'])
         pressurelong = Decimal(r_temp['field3'])
 
-        temperature = round(temperaturelong, 2)
-        humidity = round(humiditylong, 2)
+        temperature = round(temperaturelong, 1)
+        humidity = round(humiditylong, 0)
         pressure = round(pressurelong, 2)
 
         last_data_age = (r_time['last_data_age'])
@@ -47,8 +47,6 @@ class Temperature(commands.Cog):
         embedvar.add_field(name="Time from measurement:", value=f'{last_data_age} {last_data_age_units} ', inline=False)
         await ctx.send(embed=embedvar)
 
-
-#
 
 def setup(client):
     client.add_cog(Temperature(client))
