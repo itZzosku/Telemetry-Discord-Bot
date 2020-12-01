@@ -1,5 +1,6 @@
 import discord
 import requests
+from decimal import Decimal
 from discord.ext import commands
 
 
@@ -24,11 +25,18 @@ class Temperature(commands.Cog):
         url2 = 'https://api.thingspeak.com/channels/1241589/feeds/last_data_age.json?'
         r1 = requests.get(url1, params=payload)
         r2 = requests.get(url2, params=payload)
+        # print(r1.url)
+        # print(r2.url)
         r_temp = r1.json()
         r_time = r2.json()
-        temperature = (r_temp['field1'])
-        humidity = (r_temp['field2'])
-        pressure = (r_temp['field3'])
+        temperaturelong = Decimal(r_temp['field1'])
+        humiditylong = Decimal(r_temp['field2'])
+        pressurelong = Decimal(r_temp['field3'])
+
+        temperature = round(temperaturelong, 2)
+        humidity = round(humiditylong, 2)
+        pressure = round(pressurelong, 2)
+
         last_data_age = (r_time['last_data_age'])
         last_data_age_units = (r_time['last_data_age_units'])
 
