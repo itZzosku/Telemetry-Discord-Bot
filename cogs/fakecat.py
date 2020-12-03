@@ -14,7 +14,7 @@ class Fakecat(commands.Cog):
         url = 'https://thiscatdoesnotexist.com'
         r = requests.get(url, allow_redirects=True)
         open('fakecat.jpg', 'wb').write(r.content)
-        file = discord.File("C:/Users/osku2/Desktop/Source/Telemetry-Discord-Bot/fakecat.jpg", filename="fakecat.jpg")
+        file = discord.File("/home/ossi/Telemetry-Discord-Bot/fakecat.jpg", filename="fakecat.jpg")
         await ctx.send(file=file)
         os.remove("fakecat.jpg")
 
