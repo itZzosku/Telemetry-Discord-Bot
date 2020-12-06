@@ -25,8 +25,6 @@ class Temperature(commands.Cog):
         url2 = 'https://api.thingspeak.com/channels/1241589/feeds/last_data_age.json?'
         r1 = requests.get(url1, params=payload)
         r2 = requests.get(url2, params=payload)
-        # print(r1.url)
-        # print(r2.url)
         r_temp = r1.json()
         r_time = r2.json()
         temperaturelong = Decimal(r_temp['field1'])

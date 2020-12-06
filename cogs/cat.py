@@ -13,7 +13,6 @@ class Cat(commands.Cog):
         url = 'https://aws.random.cat/meow'
         r = requests.get(url)
         r_dict = r.json()
-        # print(r_dict['file'])
         await ctx.send(r_dict['file'])
 
 
