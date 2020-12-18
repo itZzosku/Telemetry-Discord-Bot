@@ -4,3 +4,5 @@ token.txt
 cogs/__pycache__/
 venv/
 bot-env/
+/venv/
+/bot-env/
