@@ -2,4 +2,5 @@ keys.txt
 token.txt
 .idea/
 cogs/__pycache__/
-/venv/
+venv/
+bot-env/
