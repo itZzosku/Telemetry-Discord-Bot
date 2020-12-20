@@ -11,7 +11,7 @@ class Temperature(commands.Cog):
 
     @commands.command(aliases=['temp', 't'])
     async def temperature(self, ctx):
-        url = 'http://192.168.1.5:1880/temperature'
+        url = 'http://osseyman.duckdns.org/Latest_Measurements.json'
         r = requests.get(url)
         r_temp = r.json()
         temperaturelong = Decimal(r_temp['Temperature'])
