@@ -1,5 +1,6 @@
 import discord
 import requests
+import datetime
 from decimal import Decimal
 from discord.ext import commands
 
@@ -18,7 +19,12 @@ class Temperature(commands.Cog):
         humiditylong = Decimal(r_temp['Humidity'])
         pressurelong = Decimal(r_temp['Pressure'])
 
-        timestamp = (r_temp['Time'])
+        timestamp_string = (r_temp['Time'])
+        timestamp_object = datetime.datetime.strptime(timestamp_string, "%a, %d %b %Y %H:%M:%S GMT")
+
+        cutime = datetime.datetime.utcnow().replace(microsecond=0)
+
+        dtime = cutime - timestamp_object
 
         temperature = round(temperaturelong, 1)
         humidity = round(humiditylong, 0)
@@ -28,7 +34,7 @@ class Temperature(commands.Cog):
         embedvar.add_field(name="Temperature:", value=f'{temperature} °C', inline=True)
         embedvar.add_field(name="Humidity:", value=f'{humidity} %', inline=True)
         embedvar.add_field(name="Pressure:", value=f'{pressure} hPa', inline=True)
-        embedvar.add_field(name="Time from measurement: TODO", value=f'{timestamp}', inline=False)
+        embedvar.add_field(name="Time from measurement:", value=f'{dtime}', inline=False)
         await ctx.send(embed=embedvar)
 
 
