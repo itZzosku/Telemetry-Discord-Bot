@@ -15,6 +15,7 @@ class Temperature(commands.Cog):
         url = 'http://osseyman.duckdns.org/Latest_Measurements.json'
         r = requests.get(url)
         r_temp = r.json()
+        sensor = (r_temp['Sensor'])
         temperaturelong = Decimal(r_temp['Temperature'])
         humiditylong = Decimal(r_temp['Humidity'])
         pressurelong = Decimal(r_temp['Pressure'])
@@ -30,7 +31,8 @@ class Temperature(commands.Cog):
         humidity = round(humiditylong, 0)
         pressure = round(pressurelong, 2)
 
-        embedvar = discord.Embed(title="Telemetry from Osseys place :D", color=0xbc0057)
+        embedvar = discord.Embed(title="Telemetry from Osseys place", color=0xbc0057)
+        embedvar.add_field(name="Sensor:", value=f'{sensor}', inline=False)
         embedvar.add_field(name="Temperature:", value=f'{temperature} °C', inline=True)
         embedvar.add_field(name="Humidity:", value=f'{humidity} %', inline=True)
         embedvar.add_field(name="Pressure:", value=f'{pressure} hPa', inline=True)
