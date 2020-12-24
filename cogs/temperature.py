@@ -21,11 +21,12 @@ class Temperature(commands.Cog):
         pressurelong = Decimal(r_temp['Pressure'])
 
         timestamp_string = (r_temp['Time'])
-        timestamp_object = datetime.datetime.strptime(timestamp_string, "%a, %d %b %Y %H:%M:%S GMT")
+        timestamp_object = int(timestamp_string)
 
-        cutime = datetime.datetime.utcnow().replace(microsecond=0)
+        cutime = datetime.datetime.now()
+        seconds_since_epoch = int(cutime.timestamp())
 
-        dtime = cutime - timestamp_object
+        dtime = seconds_since_epoch - timestamp_object
 
         temperature = round(temperaturelong, 1)
         humidity = round(humiditylong, 0)
@@ -36,7 +37,7 @@ class Temperature(commands.Cog):
         embedvar.add_field(name="Temperature:", value=f'{temperature} °C', inline=True)
         embedvar.add_field(name="Humidity:", value=f'{humidity} %', inline=True)
         embedvar.add_field(name="Pressure:", value=f'{pressure} hPa', inline=True)
-        embedvar.add_field(name="Time from measurement:", value=f'{dtime}', inline=False)
+        embedvar.add_field(name="Time from measurement:", value=f'{dtime} Seconds', inline=False)
         await ctx.send(embed=embedvar)
 
 
