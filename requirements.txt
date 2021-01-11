@@ -1,3 +1,6 @@
 
+discord
 requests
 async-timeout
+requests_html
+datetime
