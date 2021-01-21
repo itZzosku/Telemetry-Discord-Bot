@@ -40,6 +40,11 @@ class Ranks(commands.Cog):
         korva2_desc = r.html.xpath('//meta[@name="description"]/@content')
         # print(tuukka_desc)
 
+        r = session.get('https://euw.op.gg/summoner/userName=maxiumsfriend')
+
+        korva3_desc = r.html.xpath('//meta[@name="description"]/@content')
+        # print(tuukka_desc)
+
         r = session.get('https://eune.op.gg/summoner/userName=Naikou99')
 
         naikou_desc = r.html.xpath('//meta[@name="description"]/@content')
@@ -50,6 +55,7 @@ class Ranks(commands.Cog):
         embedvar.add_field(name="\u200b", value=f'{valte_desc}', inline=False)
         embedvar.add_field(name="\u200b", value=f'{korva_desc}', inline=False)
         embedvar.add_field(name="\u200b", value=f'{korva2_desc}', inline=False)
+        embedvar.add_field(name="\u200b", value=f'{korva3_desc}', inline=False)
         embedvar.add_field(name="\u200b", value=f'{tuukka_desc}', inline=False)
         embedvar.add_field(name="\u200b", value=f'{naikou_desc}', inline=False)
         await ctx.send(embed=embedvar)
