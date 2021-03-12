@@ -35,7 +35,7 @@ class Ranks(commands.Cog):
         korva_desc = r.html.xpath('//meta[@name="description"]/@content')
         # print(korva_desc)
 
-        r = session.get('https://eune.op.gg/summoner/userName=zukoqq')
+        r = session.get('https://eune.op.gg/summoner/userName=I%20DONT%20CARE%20LOL')
 
         korva2_desc = r.html.xpath('//meta[@name="description"]/@content')
         # print(tuukka_desc)
