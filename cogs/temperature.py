@@ -12,7 +12,7 @@ class Temperature(commands.Cog):
 
     @commands.command(aliases=['temp', 't'])
     async def temperature(self, ctx):
-        url = 'http://osseyman.duckdns.org/Latest_Measurements.json'
+        url = 'https://osseyman.duckdns.org/Latest_Measurements.json'
         r = requests.get(url)
         r_temp = r.json()
         sensor = (r_temp['Sensor'])
