@@ -9,7 +9,7 @@ class Korvawest(commands.Cog):
 
     @commands.command()
     async def korvawest(self, ctx):
-        await ctx.send('maxiumsfriend,aridenso,31231513513,PALT0S')
+        await ctx.send('https://euw.op.gg/multi/query=maxiumsfriend%2Caridenso%2C31231513513%2CPALT0S')
 
 
 def setup(client):
