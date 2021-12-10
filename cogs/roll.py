@@ -11,7 +11,7 @@ class Roll(commands.Cog):
     @commands.command(aliases=['random'])
     async def roll(self, ctx):
         n = random.randint(1, 999)
-        await ctx.send(n)
+        await ctx.reply(n, mention_author=False)
 
 
 def setup(client):
