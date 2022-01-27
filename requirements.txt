@@ -4,3 +4,4 @@ requests
 async-timeout
 requests_html
 datetime
+python-lichess

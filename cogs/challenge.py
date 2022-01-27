@@ -12,5 +12,6 @@ class Challenge(commands.Cog):
     async def challenge(self, ctx):
         print("TODO")
 
+
 def setup(client):
     client.add_cog(Challenge(client))
